@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonateNow - Make A Difference</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo" id="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+                </svg>
+            </div>
+            <h1>DonateNow</h1>
+            <p class="tagline">Small actions, big impact</p>
+        </header>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="donate">Donate</button>
+                <button class="tab" data-tab="causes">Our Causes</button>
+                <button class="tab" data-tab="impact">Your Impact</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="donate">
+                    <div class="donation-options">
+                        <h2>Choose a Donation Amount</h2>
+                        <div class="amount-buttons">
+                            <button class="amount-btn" data-amount="5">R50</button>
+                            <button class="amount-btn" data-amount="10">R100</button>
+                            <button class="amount-btn" data-amount="25">R250</button>
+                            <button class="amount-btn" data-amount="50">R500</button>
+                            <button class="amount-btn" data-amount="100">R1000</button>
+                            <button class="amount-btn custom" data-amount="custom">Custom</button>
+                        </div>
+                        <div class="custom-amount" id="custom-amount-container" style="display: none;">
+                            <label for="custom-amount">Enter amount (R):</label>
+                            <input type="number" id="custom-amount" min="1" placeholder="Enter amount">
+                        </div>
+                        
+                        <form id="donation-form" class="donation-form">
+                            <div class="form-group">
+                                <label for="full-name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="full-name" required>
+                                <div class="error-message" id="name-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" required>
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cause">Select a Cause <span class="required">*</span></label>
+                                <select id="cause" required>
+                                    <option value="">Choose a cause</option>
+                                    <option value="education">Education</option>
+                                    <option value="environment">Environment</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="animals">Child Welfare</option>
+                                </select>
+                                <div class="error-message" id="cause-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="card-number">Card Number <span class="required">*</span></label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                                <div class="error-message" id="card-error"></div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="expiry">Expiry Date <span class="required">*</span></label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" required>
+                                    <div class="error-message" id="expiry-error"></div>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="cvv">CVV <span class="required">*</span></label>
+                                    <input type="password" id="cvv" placeholder="123" required maxlength="4">
+                                    <div class="error-message" id="cvv-error"></div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="donate-button" class="donate-button">Donate Now</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="causes">
+                    <div class="gallery-container">
+                        <button class="gallery-nav prev" id="prev">❮</button>
+                        <div class="gallery-view">
+                            <div class="gallery-slides">
+                                <div class="gallery-slide active">
+                                    <img src="images/education.jpg" alt="Education">
+                                    <div class="slide-caption">
+                                        <h3>Education</h3>
+                                        <p>Supporting schools and students in underserved communities.</p>
+                                    </div>
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="images/environment..jpg" alt="Environment">
+                                    <div class="slide-caption">
+                                        <h3>Environment</h3>
+                                        <p>Protecting ecosystems and fighting climate change.</p>
+                                    </div>
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="images/healthcare.jpg" alt="Healthcare">
+                                    <div class="slide-caption">
+                                        <h3>Healthcare</h3>
+                                        <p>Bringing medical care to those who need it most.</p>
+                                    </div>
+                                </div>
+                                <div class="gallery-slide">
+                                    <img src="images/child.jpg" alt="Child Welfare">
+                                    <div class="slide-caption">
+                                        <h3>Child Welfare</h3>
+                                        <p>Protecting and caring for animals in need.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="gallery-nav next" id="next">❯</button>
+                    </div>
+                    <div class="gallery-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="impact">
+                    <div class="impact-section">
+                        <h2>Your Impact</h2>
+                        <div class="impact-stats">
+                            <div class="impact-stat">
+                                <div class="stat-number" id="donors-count">0</div>
+                                <div class="stat-label">Donors This Month</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="stat-number" id="donation-total">R0</div>
+                                <div class="stat-label">Total Donations</div>
+                            </div>
+                            <div class="impact-stat">
+                                <div class="stat-number" id="lives-impacted">0</div>
+                                <div class="stat-label">Lives Impacted</div>
+                            </div>
+                        </div>
+                        <div class="testimonials">
+                            <h3>Testimonials</h3>
+                            <div class="testimonial-cards">
+                                <div class="testimonial-card">
+                                    <p>"Thanks to your donations, our school now has new textbooks and computers!"</p>
+                                    <div class="testimonial-author">- Maria, Teacher</div>
+                                </div>
+                                <div class="testimonial-card">
+                                    <p>"The medical supplies donated have helped us treat thousands of patients this year."</p>
+                                    <div class="testimonial-author">- Dr. Johnson, Rural Clinic</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="success-modal" id="success-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Thank You!</h2>
+                <p>Your donation has been successfully processed.</p>
+                <div class="confetti"></div>
+                <button class="close-button">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
